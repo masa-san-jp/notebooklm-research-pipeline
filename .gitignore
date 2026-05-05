@@ -1,0 +1,166 @@
+# =============================================================================
+# Secrets — NEVER COMMIT
+# =============================================================================
+# Environment files (allow .env.example only)
+.env
+.env.*
+!.env.example
+
+# API credentials / private keys
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+credentials.json
+*-credentials.json
+client_secret*.json
+service-account*.json
+.netrc
+.credentials/
+secrets/
+
+# Cookies / session state
+*.cookies.json
+cookies/
+.cookies/
+session.json
+sessions/
+
+# =============================================================================
+# Run-time outputs (potentially sensitive query data)
+# =============================================================================
+out/
+output/
+results/
+artifacts/
+*.report.md
+*-report.md
+report-*.md
+*.mindmap.png
+*-mindmap.png
+mindmap-*.png
+*.mindmap.md
+*-mindmap.md
+mindmap-*.md
+meta-*.json
+notebook-ids.txt
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+build/
+dist/
+develop-eggs/
+.installed.cfg
+.eggs/
+parts/
+sdist/
+wheels/
+share/python-wheels/
+MANIFEST
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# Testing / type checking / linting
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =============================================================================
+# Node (in case of CI / docs tooling)
+# =============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+
+# =============================================================================
+# OS
+# =============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =============================================================================
+# IDE / editor
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# =============================================================================
+# Logs
+# =============================================================================
+*.log
+logs/
+log/
+
+# =============================================================================
+# NotebookLM CLI local state (defensive)
+# =============================================================================
+.notebooklm/
+.notebooklm-cache/
+.nlm/
+*.nlm-state.json
+notebooklm-mcp-cli-profile/
+
+# =============================================================================
+# Misc
+# =============================================================================
+*.tmp
+*.bak
+*.backup
+.envrc
+.direnv/
