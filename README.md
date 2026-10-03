@@ -135,3 +135,17 @@ cp .env.example .env
 ## ライセンス
 
 MIT License — see [LICENSE](./LICENSE)
+
+## 設計の背景と成立
+
+資料を集める段階、全体像をマインドマップへ整理する段階、各論を深掘りする段階を分け、NotebookLMのノートブックを後から再参照できる形で残す構成です。同じ中間Markdownを使う二系統を用意し、クラウド側とローカルLLM側の調査処理を切り替えられるようにしています。
+
+[2026年5月5日の初期構成](https://github.com/masa-san-jp/notebooklm-research-pipeline/commit/7c40d2af8a9d3e935de29c12944e40425ac04b5f)は、上記の外部設計仕様を実装する足場として追加されています。READMEのロードマップにあるend-to-end検証は未完了であり、完成済みの調査サービスという意味ではありません。
+
+### 実装上の区別
+
+- [Branch Aのシェル](pipeline_claude.sh)は既定の `USE_INTERACTIVE=1` では、深掘り調査をClaude Codeで行うための指示を表示します。これだけで `report.md` が自動生成されるわけではありません。
+- `USE_INTERACTIVE=0` では[Anthropic SDKのスクリプト](scripts/deep_research_claude.py)を実行し、API課金の対象となります。Maxプラン内の対話実行と混同しないでください。
+- [Branch B](pipeline_local.sh)もNotebookLMとBrave Searchを利用します。「ローカルLLM」は推論先の区分であり、完全なオフライン処理ではありません。
+
+API・CLIの互換性、認証の有効期限、利用枠は環境で確認し、まず機密情報を含まない短いクエリで各工程と出典を検証するのが次の段階です。
